@@ -1,0 +1,9 @@
+avdmanager create avd -n defemulator -k "system-images;android-34;google_apis;x86_64" -d "medium_phone"
+emulator -avd defemulator -no-snapshot-load
+
+
+npx @react-native-community/cli@latest init AwesomeProject
+adb reverse tcp:8081 tcp:8081
+npx react-native start
+npx react-native run-android
+npx react-native start --port 9988
