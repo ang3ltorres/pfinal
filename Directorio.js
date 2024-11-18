@@ -7,7 +7,6 @@ import Barra from './Barra';
 const Directorio = ({
 }) => {
 
-
 	return (
 		<View style={styles.container}>
 			<Barra></Barra>

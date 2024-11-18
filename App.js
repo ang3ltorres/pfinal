@@ -4,6 +4,7 @@ import { SafeAreaView, Text } from 'react-native';
 import Login from './Login';
 import { NavigationContainer } from '@react-navigation/native';
 import Directorio from './Directorio';
+import Principal from './Principal';
 
 const App = () => 
 {
@@ -12,7 +13,7 @@ const App = () =>
 
 	return (
 
-			<Directorio></Directorio>
+			<Principal />
 
 	);
 }
