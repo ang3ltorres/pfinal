@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Directorio from './Directorio';
 import Principal from './Principal';
 import Kardex from './Kardex';
+import DatosMaterias from './Datos';
 
 const App = () => 
 {
@@ -13,9 +14,7 @@ const App = () =>
 	const [pass, setPass] = useState(null);
 
 	return (
-
-			<Kardex />
-
+		<DatosMaterias />
 	);
 }
 
