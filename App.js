@@ -5,6 +5,7 @@ import Login from './Login';
 import { NavigationContainer } from '@react-navigation/native';
 import Directorio from './Directorio';
 import Principal from './Principal';
+import Kardex from './Kardex';
 
 const App = () => 
 {
@@ -13,7 +14,7 @@ const App = () =>
 
 	return (
 
-			<Principal />
+			<Kardex />
 
 	);
 }
