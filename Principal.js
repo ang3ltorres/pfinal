@@ -6,6 +6,7 @@ import MapView from 'react-native-maps';
 import WebView from 'react-native-webview';
 
 const Principal = ({
+	mail, pass
 }) => {
 	return (
 		<ImageBackground
@@ -14,7 +15,7 @@ const Principal = ({
 			resizeMode="cover"
 		>
 
-			<Barra title={'Principal'} />
+			<Barra title={'Principal'} mail={mail} />
 			
 			<View style={styles.buttonRow}>
 				<TouchableOpacity>

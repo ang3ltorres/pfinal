@@ -14,7 +14,7 @@ const App = () =>
 	const [pass, setPass] = useState(null);
 
 	return (
-		<DatosMaterias />
+		<Kardex />
 	);
 }
 

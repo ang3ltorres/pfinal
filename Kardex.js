@@ -18,7 +18,9 @@ const MateriaKardex = ({ descripcion, nrc, clave, fecha, ciclo, calificacion, cr
 	</View>
 );
 
-const Kardex = () => {
+const Kardex = ({
+	mail, pass
+}) => {
 	const [data, setData] = useState({
 		creditosAdquiridos: 0, creditosRequeridos: 0, tipoCertificado: '', promedio: 0, materias: [], creditosArea: null
 	});
@@ -34,7 +36,7 @@ const Kardex = () => {
 
 	return (
 		<ImageBackground source={require('./images/background_4.png')} style={styles.container} resizeMode='cover'>
-			<Barra title={'Kardex'} />
+			<Barra title={'Kardex'} mail={mail} />
 
 			<ImageBackground source={require('./images/background_5.png')} style={styles.topImage} resizeMode='stretch'>
 				<Text style={styles.mediumText}>     Créditos: {data.creditosAdquiridos}/{data.creditosRequeridos}</Text>

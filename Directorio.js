@@ -5,11 +5,12 @@ import { WebView } from 'react-native-webview';
 import Barra from './Barra';
 
 const Directorio = ({
+	mail, pass
 }) => {
 
 	return (
 		<View style={styles.container}>
-			<Barra></Barra>
+			<Barra title={'Directorio'} mail={mail} />
 			<WebView source={{ uri: 'https://www.udg.mx/es/directorio' }} style={styles.webContainer} />
 		</View>
 	);
