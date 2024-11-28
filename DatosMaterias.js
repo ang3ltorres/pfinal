@@ -5,8 +5,6 @@ import { PieChart } from 'react-native-chart-kit';
 
 const DatosMaterias = ({ logged, data, mail, pass }) => {
 
-	
-
   const screenWidth = Dimensions.get('window').width;
 
   const creditosAdquiridos = data["creditosAdquiridos"];
@@ -145,7 +143,7 @@ const DatosMaterias = ({ logged, data, mail, pass }) => {
 						<Text style={styles.chartTitleSmall}>Especializante Obligatoria</Text>
 						<PieChart
 							data={charDataEspObligatoria}
-							width={screenWidth / 2.2} // Ajustar el ancho del gráfico
+							width={screenWidth / 2.2}
 							height={220}
 							chartConfig={{
 								color: () => `rgba(255, 255, 255, 1.0)`,
@@ -162,7 +160,7 @@ const DatosMaterias = ({ logged, data, mail, pass }) => {
 						<Text style={styles.chartTitleSmall}>Especializante Selectiva</Text>
 						<PieChart
 							data={charDataEspSelectiva}
-							width={screenWidth / 2.2} // Ajustar el ancho del gráfico
+							width={screenWidth / 2.2}
 							height={220}
 							chartConfig={{
 								color: () => `rgba(255, 255, 255, 1.0)`,
@@ -198,7 +196,7 @@ const DatosMaterias = ({ logged, data, mail, pass }) => {
 						<Text style={styles.chartTitleSmall}>Optativa Abierta</Text>
 						<PieChart
 							data={charDataOptAbierta}
-							width={screenWidth / 2.2} // Ajustar el ancho del gráfico
+							width={screenWidth / 2.2}
 							height={220}
 							chartConfig={{
 								color: () => `rgba(255, 255, 255, 1.0)`,
@@ -215,7 +213,7 @@ const DatosMaterias = ({ logged, data, mail, pass }) => {
 						<Text style={styles.chartTitleSmall}>Básica Particular</Text>
 						<PieChart
 							data={charDataBasParticular}
-							width={screenWidth / 2.2} // Ajustar el ancho del gráfico
+							width={screenWidth / 2.2}
 							height={220}
 							chartConfig={{
 								color: () => `rgba(255, 255, 255, 1.0)`,
@@ -230,7 +228,7 @@ const DatosMaterias = ({ logged, data, mail, pass }) => {
 				</View>
 
 			</ScrollView>
-      
+     
     </ImageBackground>
   );
 };

@@ -14,11 +14,6 @@ const App = () =>
 	const [pass, setPass] = useState(false);
 	const [mail, setMail] = useState(null);
 	const [logged, setLogged] = useState(true);
-
-	// const [data, setData] = useState({
-	// 	creditosAdquiridos: 0, creditosRequeridos: 0, tipoCertificado: '', promedio: 0, materias: [], creditosArea: null
-	// });
-
 	const [data, setData] = useState(null)
 
 	useEffect(() => {
@@ -28,7 +23,7 @@ const App = () =>
 			setData(json);
 		}
 		fetchData();
-	}, [])
+	}, [logged])
 
 	return (
     <>
