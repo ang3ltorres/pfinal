@@ -19,20 +19,9 @@ const MateriaKardex = ({ descripcion, nrc, clave, fecha, ciclo, calificacion, cr
 );
 
 const Kardex = ({
+	logged, data,
 	mail, pass
 }) => {
-	const [data, setData] = useState({
-		creditosAdquiridos: 0, creditosRequeridos: 0, tipoCertificado: '', promedio: 0, materias: [], creditosArea: null
-	});
-
-	useEffect(() => {
-		async function fetchData() {
-			const response = await fetch('https://cuceimobile.space/Escuela/kardex.php');
-			const json = await response.json();
-			setData(json);
-		}
-		fetchData();
-	}, []);
 
 	return (
 		<ImageBackground source={require('./images/background_4.png')} style={styles.container} resizeMode='cover'>

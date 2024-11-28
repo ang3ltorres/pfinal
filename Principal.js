@@ -2,7 +2,6 @@ import React from 'react';
 import { View, StyleSheet, ImageBackground, Text, TouchableOpacity, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Barra from './Barra';
-import MapView from 'react-native-maps';
 import WebView from 'react-native-webview';
 
 const Principal = ({

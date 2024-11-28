@@ -22,9 +22,9 @@ const Barra = ({
 	[]);
 
 
-	function renderModal(loggedIn)
+	function renderModal(logged)
 	{
-		return (loggedIn) ?
+		return (logged) ?
 		(
 			<>
 				<Text style={styles.modalText}>¡Hola, USER!</Text>
