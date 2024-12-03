@@ -3,7 +3,7 @@ import { View, StyleSheet, ImageBackground, Dimensions, Text, ScrollView } from 
 import Barra from './Barra';
 import { PieChart } from 'react-native-chart-kit';
 
-const DatosMaterias = ({ logged, data, mail, pass }) => {
+const DatosMaterias = ({ logged, data, mail, pass, userData, setUserData }) => {
 
   const screenWidth = Dimensions.get('window').width;
 
@@ -117,7 +117,7 @@ const DatosMaterias = ({ logged, data, mail, pass }) => {
 
   return (
     <ImageBackground source={require('./images/background_6.png')} style={styles.container} resizeMode="cover">
-      <Barra title={'Datos Materias'} mail={mail} />
+      <Barra title={'Datos Materias'} mail={mail} userData={userData} setUserData={setUserData} />
 
 			<ScrollView style={{padding: 24}}>
 

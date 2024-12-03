@@ -3,9 +3,31 @@ import { useEffect, useState } from 'react';
 import { View, StyleSheet, Image, ImageBackground, TextInput, TouchableOpacity, Text } from 'react-native';
 import { Modal, TouchableWithoutFeedback } from 'react-native';
 
+import { GoogleSignin, GoogleSigninButton, statusCodes, isErrorWithCode, isSuccessResponse, isNoSavedCredentialFoundResponse } from '@react-native-google-signin/google-signin';
+
+GoogleSignin.configure({
+	webClientId: 'autoDetect',
+  offlineAccess: false,
+  forceCodeForRefreshToken: true,
+});
+
 const Barra = ({
-	title, mail
+	title, mail,
+	userData, setUserData
 }) => {
+
+	async function signIn()
+	{
+		try {
+			await GoogleSignin.hasPlayServices();
+			const userInfo = await GoogleSignin.signIn();
+			await setUserData(userInfo);
+			console.log('User Info:', userInfo);
+		} catch (error) {
+			console.error('Error during Google Sign-In:', error);
+		}
+	};
+
 	const [weather, setWeather] = useState(null);
 	const [modalVisible, setModalVisible] = useState(false);
 
@@ -41,7 +63,7 @@ const Barra = ({
 		: (
 			<>
 				<Text style={styles.modalText}>¡Hola, Invitado!</Text>
-				<TouchableOpacity onPress={() => setModalVisible(false)}>
+				<TouchableOpacity onPress={() => {setModalVisible(false); signIn()}}>
 					<Text style={styles.settingsButton}>iniciar sesión</Text>
 				</TouchableOpacity>
 			</>

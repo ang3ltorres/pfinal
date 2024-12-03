@@ -5,7 +5,8 @@ import Barra from './Barra';
 import WebView from 'react-native-webview';
 
 const Principal = ({
-	mail, pass
+	mail, pass,
+	userData, setUserData
 }) => {
 	return (
 		<ImageBackground
@@ -14,7 +15,7 @@ const Principal = ({
 			resizeMode="cover"
 		>
 
-			<Barra title={'Principal'} mail={mail} />
+			<Barra title={'Principal'} mail={mail} userData={userData} setUserData={setUserData} />
 			
 			<View style={styles.buttonRow}>
 				<TouchableOpacity>
@@ -23,6 +24,10 @@ const Principal = ({
 					style={styles.buttons}
 				>
 					<Text style={[styles.buttonsText, styles.textShadow]}>RA</Text>
+					<Image
+						style={styles.image}
+						source={require('./images/ra.png')}
+					/>
 				</LinearGradient>
 				</TouchableOpacity>
 
@@ -32,6 +37,10 @@ const Principal = ({
 					style={styles.buttons}
 				>
 					<Text style={[styles.buttonsText, styles.textShadow]}>Módulos</Text>
+					<Image
+						style={styles.image}
+						source={require('./images/modulos.png')}
+					/>
 				</LinearGradient>
 				</TouchableOpacity>
 			</View>
@@ -52,10 +61,10 @@ const Principal = ({
 
 				<LinearGradient
 					colors={['#ffffff', 'green']}
-					style={styles.buttons}
+					style={[styles.buttons, {padding:0, margin:0, border:0}]}
 				>
-					<Text style={[styles.buttonsText, styles.textShadow]}>Mapa</Text>
-					<WebView source={{ uri: 'https://www.google.com.mx/maps/@20.6561034,-103.3235243,16z' }} />
+					<Text style={[styles.buttonsText, styles.textShadow, {fontSize: 32}]}>Mapa CUCEI</Text>
+					<WebView style={{ padding:0, margin:0, border:0, width:'100%' }} source={{ uri: 'https://www.google.com.mx/maps/place/Centro+Universitario+de+Ciencias+Exactas+e+Ingenier%C3%ADas+(CUCEI),+Blvd.+Gral.+Marcelino+Garc%C3%ADa+Barrag%C3%A1n+1421,+Ol%C3%ADmpica,+44430+Guadalajara,+Jal./@20.6548611,-103.3254497,16z/data=!4m6!3m5!1s0x8428b23a9bbba' }} />
 				</LinearGradient>
 			</View>
 

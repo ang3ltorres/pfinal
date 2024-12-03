@@ -20,12 +20,13 @@ const MateriaKardex = ({ descripcion, nrc, clave, fecha, ciclo, calificacion, cr
 
 const Kardex = ({
 	logged, data,
-	mail, pass
+	mail, pass,
+	userData, setUserData
 }) => {
 
 	return (
 		<ImageBackground source={require('./images/background_4.png')} style={styles.container} resizeMode='cover'>
-			<Barra title={'Kardex'} mail={mail} />
+			<Barra title={'Kardex'} mail={mail} userData={userData} setUserData={setUserData} />
 
 			<ImageBackground source={require('./images/background_5.png')} style={styles.topImage} resizeMode='stretch'>
 				<Text style={styles.mediumText}>     Créditos: {data.creditosAdquiridos}/{data.creditosRequeridos}</Text>

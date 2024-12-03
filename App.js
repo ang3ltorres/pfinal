@@ -1,39 +1,58 @@
-import React from 'react';
-import { useEffect, useState } from "react";
-import { SafeAreaView, Text } from 'react-native';
-import Login from './Login';
+import React, { useEffect, useState } from 'react';
+import { SafeAreaView, Text, ActivityIndicator } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import Directorio from './Directorio';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
 import Principal from './Principal';
-import Kardex from './Kardex';
 import DatosMaterias from './DatosMaterias';
-import { ActivityIndicator } from 'react-native';
+import Directorio from './Directorio';
+import Kardex from './Kardex';
 
-const App = () => 
-{
-	const [pass, setPass] = useState(false);
-	const [mail, setMail] = useState(null);
-	const [logged, setLogged] = useState(true);
-	const [data, setData] = useState(null)
+// Create a Drawer Navigator
+const Drawer = createDrawerNavigator();
 
-	useEffect(() => {
-		async function fetchData() {
-			const response = await fetch('https://cuceimobile.space/Escuela/kardex.php');
-			const json = await response.json();
-			setData(json);
-		}
-		fetchData();
-	}, [logged])
+const App = () => {
+  const [pass, setPass] = useState(false);
+  const [mail, setMail] = useState(null);
+  const [logged, setLogged] = useState(true);
+  const [data, setData] = useState(null);
+  const [userData, setUserData] = useState(null);
 
-	return (
-    <>
-      {data ? (
-        <DatosMaterias logged={logged} data={data} />
-      ) : (
-        <ActivityIndicator size="large" color="#0000ff" />
-      )}
-    </>
-	);
-}
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch('https://cuceimobile.space/Escuela/kardex.php');
+      const json = await response.json();
+      setData(json);
+    }
+    fetchData();
+  }, [logged]);
+
+  if (!data) {
+    return <ActivityIndicator size="large" color="#0000ff" />;
+  }
+
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Principal">
+        <Drawer.Screen
+          name="Principal"
+          children={() => <Principal mail={mail} pass={pass} userData={userData} setUserData={setUserData} />}
+        />
+        <Drawer.Screen
+          name="DatosMaterias"
+          children={() => <DatosMaterias logged={logged} data={data} userData={userData} setUserData={setUserData} />}
+        />
+        <Drawer.Screen
+          name="Directorio"
+          children={() => <Directorio mail={mail} pass={pass} userData={userData} setUserData={setUserData} />}
+        />
+        <Drawer.Screen
+          name="Kardex"
+          children={() => <Kardex logged={logged} data={data} mail={mail} pass={pass} userData={userData} setUserData={setUserData} />}
+        />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
+};
 
 export default App;
